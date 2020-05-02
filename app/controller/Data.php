@@ -9,6 +9,7 @@ class Data extends BaseController
     public function index()
     {
         echo '15615';
+        echo 'dadad';
         //try
     }
 }
