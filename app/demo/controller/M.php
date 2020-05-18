@@ -3,7 +3,7 @@
 namespace app\demo\controller;
 
 use app\BaseController;
-use app\Model\Demo;
+use app\demo\Model\Demo;
 
 class M extends BaseController
 {
@@ -16,12 +16,8 @@ class M extends BaseController
         }
         $model = new Demo();
         //从url获取值
-        $results = $model->where("category_id", $categoryId)
-            ->limit(10)
-            ->order("id", "desc")
-            ->select();
-
-            if (empty($results->toArray())) {
+        $results = $model->getDemoDataByCategoryId($categoryId);
+        if (empty($results)) {
             return show(config("status.success"), "数据为空");
         }
 
